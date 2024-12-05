@@ -1,0 +1,54 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '2.7.18'
+	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+}
+
+group = 'com.nexacraft'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	sourceCompatibility = JavaVersion.VERSION_1_8
+	targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-data-rest'
+	// implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-hateoas'
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+	runtimeOnly 'org.springframework.boot:spring-boot-devtools'
+	runtimeOnly 'com.h2database:h2'
+
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+	implementation "org.springframework.boot:spring-boot-starter-security"
+
+
+	implementation 'org.springframework:spring-test:5.3.12'
+
+	// So the Open API basially provide an defination or the standard defination for your REST API
+	// Where the springdoc-openapi make use of Swagger UI in order to visualise the defination of the REST API
+    // https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-starter-webmvc-ui
+	implementation 'org.springdoc:springdoc-openapi-ui:1.8.0'
+
+
+
+
+
+	runtimeOnly 'com.mysql:mysql-connector-j'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.security:spring-security-test'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
